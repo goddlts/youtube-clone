@@ -1,0 +1,73 @@
+{% set current = 'MyVideos' %}
+{% extends 'layouts/layout.html' %}
+{% block styles %}
+<link href="/assets/styles/my_videos.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<div class="my-videos">
+  <!-- <div class="cover">
+    <img
+      src="https://res.cloudinary.com/douy56nkf/image/upload/v1594060919/defaults/xcdnczly5nuwpibolagv.png"
+      alt="channel-cover"
+    />
+  </div> -->
+  <div class="header-tabs">
+    <div class="user-header">
+      <div class="flex-row">
+        <img
+          class="avatar lg"
+          src="https://res.cloudinary.com/douy56nkf/image/upload/v1594060920/defaults/txxeacnh3vanuhsemfc8.png"
+          alt="channel avatar"
+        />
+        <div>
+          <h3>goddlts</h3>
+          <span class="secondary">0 subscribers</span>
+        </div>
+      </div>
+      <div class="profile">
+        <div>
+          <button class="edit">Edit Profile</button
+          ><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" fill="">
+            <path
+              d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5a2 2 0 00-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 002 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="tabs">
+      <ul class="secondary">
+        <li style="border-bottom: 2px solid white; color: white">Videos</li>
+        <li>Channels</li>
+        <li>About</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab">
+    <div class="tab-item">
+      <div class="videos">
+        <a href="/watch/12b32d3b-c23e-41b0-ae6f-b24b30a4d17e"
+          ><div class="sc-fzozJi dteCCc">
+            <img
+              class="thumb"
+              src="https://res.cloudinary.com/tylerdurden/video/upload/v1613979738/youutbeclone/fgf2rh5wmtkpxreve4pi.jpg"
+              alt="thumbnail"
+            />
+            <div class="video-info-container">
+              <div class="channel-avatar"></div>
+              <div class="video-info">
+                <h4>youtube clone</h4>
+                <p class="secondary">
+                  <span>0 views</span> <span>•</span>
+                  <span>43 seconds ago</span>
+                </p>
+              </div>
+            </div>
+          </div></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

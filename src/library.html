@@ -1,0 +1,62 @@
+{% set current = 'Home' %} {% extends 'layouts/layout.html' %} {% block styles%}
+<link href="/assets/styles/library.css" rel="stylesheet" />
+{% endblock %} {% block body %}
+<div class="history">
+  <h2>History</h2>
+  <!-- <p class="secondary">Videos that you have watched will show up here</p> -->
+  <a href="/watch/3ac30e23-45a6-4eca-9430-3654142a772c"
+    ><div class="video">
+      <img
+        class="thumb"
+        src="https://res.cloudinary.com/tylerdurden/video/upload/v1610602989/youutbeclone/jcxdkn7kwykw2oyk95up.jpg"
+        alt="thumbnail"
+      />
+      <div class="video-info-container">
+        <h3>Twitter clone</h3>
+        <p class="secondary">
+          <span>manikandanraji</span><span>•</span><span>9 views</span
+          ><span>•</span> <span>39 days ago</span>
+        </p>
+        <p class="secondary">twitter clone using graphql</p>
+      </div>
+    </div></a
+  >
+</div>
+<div class="liked">
+  <h2>Liked Videos</h2>
+  <a href="/watch/adc3e307-405d-46e3-ab2e-c3d796e0e618"
+    ><div class="video">
+      <img
+        class="thumb"
+        src="https://res.cloudinary.com/tylerdurden/video/upload/v1613930581/youutbeclone/e11m12dtzyf93ings0xa.jpg"
+        alt="thumbnail"
+      />
+      <div class="video-info-container">
+        <h3>paper airplane</h3>
+        <p class="secondary">
+          <span>Adilskillz</span><span>•</span><span>0 views</span
+          ><span>•</span> <span>13 hours ago</span>
+        </p>
+        <p class="secondary">how to make paper airplane</p>
+      </div>
+    </div></a
+  >
+  <a href="/watch/a7ff39ba-ecb7-42e4-a87e-56412ab7a7ad"
+    ><div class="video">
+      <img
+        class="thumb"
+        src="https://res.cloudinary.com/tylerdurden/video/upload/v1613964700/youutbeclone/iwe0uyq5qeas1cfr6hr1.jpg"
+        alt="thumbnail"
+      />
+      <div class="video-info-container">
+        <h3>😂😂😂</h3>
+        <p class="secondary">
+          <span>pukarsharma112</span><span>•</span><span>9 views</span
+          ><span>•</span> <span>3 hours ago</span>
+        </p>
+        <p class="secondary">😜😜😜</p>
+      </div>
+    </div></a
+  >
+</div>
+{% endblock %}

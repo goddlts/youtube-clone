@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/youtube.svg" />
+  <meta name="author" content="js">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Youtube Clone" />
+  <link rel="apple-touch-icon" href="/youtube.svg" />
+  <title>{{ current | title }} · {{ pkg.name | replace('[-_]', ' ', 'g') | title }}</title>
+  <!-- build:css assets/styles/main.css -->
+  <!-- 样式初始化 -->
+  <link href="/assets/styles/style.css" rel="stylesheet" />
+  <!-- 布局样式 -->
+  <link href="/assets/styles/layout.css" rel="stylesheet" />
+  <!-- endbuild -->
+
+  {% block styles %}{% endblock %}
+</head>
+
+<body>
+  {% include '../partials/header.html' %}
+
+  {% include '../partials/sidebar.html' %}
+
+  <!-- 主内容区域 -->
+  <div class="main">
+    {% block body %}{% endblock %}
+  </div>
+
+  {% include '../partials/footer.html' %}
+
+  <!-- build:js assets/scripts/vendor.js -->
+  <!-- endbuild -->
+  <!-- build:js assets/scripts/main.js -->
+  <!-- endbuild -->
+
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>

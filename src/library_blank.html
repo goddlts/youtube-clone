@@ -1,0 +1,17 @@
+{% set current = 'Home' %}
+{% extends 'layouts/layout.html' %}
+
+{% block styles%}
+<link href="/assets/styles/library.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+  <div class="history">
+    <h2>History</h2>
+    <p class="secondary">Videos that you have watched will show up here</p>
+  </div>
+  <div class="liked">
+    <h2>Liked Videos</h2>
+    <p class="secondary">Videos that you have liked will show up here</p>
+  </div>
+{% endblock %}

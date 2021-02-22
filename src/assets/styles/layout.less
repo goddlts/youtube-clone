@@ -1,0 +1,133 @@
+@import './_variables.less';
+
+@import './_icons.less';
+
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  background: rgb(32, 32, 32);
+  z-index: 99;
+  padding: 0.7rem 1.5rem;
+}
+
+.header .toggle-navhandler {
+  display: none;
+}
+
+.header .logo span {
+  position: relative;
+  top: 1px;
+}
+
+.searchBar input.search {
+  background: rgb(18, 18, 18);
+  padding: 0.4rem 1rem;
+  border: 1px solid rgb(56, 56, 56);
+  height: 31px;
+  color: rgb(255, 255, 255);
+}
+
+.searchBar input {
+  width: 500px;
+}
+
+.header ul {
+  list-style: none;
+  display: flex;
+  position: relative;
+  top: 2px;
+}
+
+.header li svg {
+  margin-right: 1.7rem;
+  position: relative;
+  top: 3px;
+}
+
+.header img {
+  position: relative;
+  top: 3px;
+}
+
+.user {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.flex-row img,
+.flex-row svg {
+  margin-right: 0.8rem;
+}
+
+svg, .pointer {
+  cursor: pointer;
+}
+
+.flex-row {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+/* ------------------- sidebar ------------------- */
+.sidebar {
+  position: fixed;
+  top: 55px;
+  left: 0px;
+  height: 100vh;
+  width: 240px;
+  background: rgb(32, 32, 32);
+  padding-top: 1rem;
+  overflow: auto;
+  padding-bottom: 1.5rem;
+  transition: all 0.3s ease 0s;
+  z-index: 2;
+}
+
+.sidebar .active div {
+  background: rgb(56, 56, 56);
+  cursor: pointer;
+}
+
+.sidebar .icon {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0.2rem 0px 0.2rem 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.sidebar .active svg {
+  fill: rgb(255, 255, 255);
+}
+
+.sidebar .icon span {
+  padding-left: 1rem;
+  position: relative;
+  top: 1px;
+}
+
+.ruler {
+  height: 1px;
+  background: rgb(56, 56, 56);
+  margin: 1rem 0px;
+}
+
+/* ------------------- 主内容区域 ------------------- */
+.main {
+  margin-top: 60px;
+  margin-left: 240px;
+}
+
+.secondary {
+  color: rgb(170, 170, 170);
+}

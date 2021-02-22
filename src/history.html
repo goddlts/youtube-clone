@@ -1,0 +1,27 @@
+{% set current = 'Home' %} {% extends 'layouts/layout.html' %} {% block styles
+%}
+<link href="/assets/styles/history.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+  <div class="content">
+    <h2>History</h2>
+    <a href="/watch/3ac30e23-45a6-4eca-9430-3654142a772c"
+      ><div class="video">
+        <img
+          class="thumb"
+          src="https://res.cloudinary.com/tylerdurden/video/upload/v1610602989/youutbeclone/jcxdkn7kwykw2oyk95up.jpg"
+          alt="thumbnail"
+        />
+        <div class="video-info-container">
+          <h3>Twitter clone</h3>
+          <p class="secondary">
+            <span>manikandanraji</span><span>•</span><span>9 views</span
+            ><span>•</span> <span>39 days ago</span>
+          </p>
+          <p class="secondary">twitter clone using graphql</p>
+        </div>
+      </div></a
+    >
+  </div>
+{% endblock %}
