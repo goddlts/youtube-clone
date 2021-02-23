@@ -1,11 +1,13 @@
-// https://lg-youtube-api.herokuapp.com/api/v1/auth/login
+// https://lg-youtube-api.herokuapp.com/api/v1
+// http://localhost:5000/api/v1
 const http = axios.create({
-  baseURL: 'http://localhost:5000/api/v1',
+  // baseURL: 'http://localhost:5000/api/v1',
+  baseURL: 'https://lg-youtube-api.herokuapp.com/api/v1',
   timeout: 10000
 })
 
 http.interceptors.request.use(function (config) {
-  // Do something before request is sent
+  NProgress.start()
   // do something before request is sent
   const user = JSON.parse(localStorage.getItem('user'))
   if (user && user.token) {
@@ -19,6 +21,7 @@ http.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 http.interceptors.response.use(function (response) {
+  NProgress.done()
   if (response.status !== 200 && response.status !== 201) {
     // ToDo错误提示
     Toastify({

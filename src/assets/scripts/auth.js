@@ -1,7 +1,5 @@
 ;(function handleLogin(w) {
   $('#formLogin').on('submit', function () {
-    NProgress.start()
-
     http
       .post('/auth/login', $(this).serializeObject())
       .then(res => {
@@ -18,27 +16,7 @@
     return false
   })
 
-  // https://lg-youtube-api.herokuapp.com/api/v1/auth/me
-  function getMyInfo (token) {
-    http
-      .get('/auth/me', {
-        headers: {
-          authorization: 'Bearer ' + token
-        }
-      })
-      .then(res => {
-        NProgress.done()
-
-        res.data.token = token
-        localStorage.setItem('user', JSON.stringify(res.data))
-        // 跳转到首页
-        window.location.href = '/index.html'
-      })
-  }
-
   $('#formRegister').on('submit', function () {
-    NProgress.start()
-
     http
       .post('/auth/signup', $(this).serializeObject())
       .then(res => {
@@ -53,6 +31,21 @@
       })
     return false
   })
+
+  function getMyInfo (token) {
+    http
+      .get('/auth/me', {
+        headers: {
+          authorization: 'Bearer ' + token
+        }
+      })
+      .then(res => {
+        res.data.token = token
+        localStorage.setItem('user', JSON.stringify(res.data))
+        // 跳转到首页
+        window.location.href = '/index.html'
+      })
+  }
 
   $('#panelRegister').css('display', 'none')
   // 显示隐藏控制

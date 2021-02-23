@@ -10,7 +10,9 @@
     "dev": "gulp develop"
   },
   "dependencies": {
+    "art-template": "^4.13.2",
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
     "jquery": "^3.5.1",
     "jquery-validation": "^1.19.3",
     "nprogress": "^0.2.0",
