@@ -1,6 +1,6 @@
 // https://lg-youtube-api.herokuapp.com/api/v1/auth/login
 const http = axios.create({
-  baseURL: 'https://lg-youtube-api.herokuapp.com/api/v1',
+  baseURL: 'http://localhost:5000/api/v1',
   timeout: 10000
 })
 
