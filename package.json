@@ -10,6 +10,10 @@
     "dev": "gulp develop"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "jquery": "^3.5.1",
+    "jquery-validation": "^1.19.3",
+    "toastify-js": "^1.9.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

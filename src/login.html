@@ -9,14 +9,23 @@
     <link rel="apple-touch-icon" href="/youtube.svg" />
     <title>YouTube Clone</title>
     <link href="/assets/styles/style.css" rel="stylesheet" />
+    <!-- build:css assets/styles/login.css -->
     <link href="/assets/styles/login.css" rel="stylesheet" />
+    <!-- endbuild -->
+    <!-- build:css assets/styles/vendor.css -->
+    <link rel="stylesheet" href="/node_modules/toastify-js/src/toastify.css">
+    <!-- endbuild -->
   </head>
   <body>
     <div id="root">
       <div class="panel">
         <h2>登录您的账号</h2>
-        <form>
-          <input type="email" placeholder="email" value="xxxy@xxx.xxx" /><input
+        <form id="formLogin">
+          <input id="email" name="email" required type="email" placeholder="email" value="xxxy@xxx.xxx" />
+          <input
+            id="password"
+            name="password"
+            required
             type="password"
             placeholder="password"
             value="123456"
@@ -25,7 +34,48 @@
             <span class="pointer">注册</span><button>登录</button>
           </div>
         </form>
+        <form id="formRegister">
+          <div class="input-group">
+            <input type="text" placeholder="firstname" value="" />
+            <input
+              type="text"
+              placeholder="lastname"
+              value=""
+            />
+          </div>
+          <input type="text" placeholder="username" value="" />
+          <input
+            type="email"
+            placeholder="email"
+            value=""
+          />
+          <div class="input-group">
+            <input
+              type="password"
+              placeholder="password"
+              value=""
+            />
+            <input type="password" placeholder="confirm" value="" />
+          </div>
+          <div class="action input-group">
+            <span class="pointer">登录</span><button>Sign Up</button>
+          </div>
+        </form>
       </div>
     </div>
+    <!-- build:js assets/scripts/vendor.js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/toastify-js/src/toastify.js"></script>
+    <script src="/node_modules/axios/dist/axios.js"></script>
+    <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/node_modules/jquery-validation/dist/localization/messages_zh.js"></script>
+    <!-- endbuild -->
+    <!-- build:js assets/scripts/utils.js -->
+    <script src="/assets/scripts/http.js"></script>
+    <script src="/assets/scripts/utils.js"></script>
+    <!-- endbuild -->
+    <!-- build:js assets/scripts/auth.js -->
+    <script src="/assets/scripts/auth.js"></script>
+    <!-- endbuild -->
   </body>
 </html>
