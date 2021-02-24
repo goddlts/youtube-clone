@@ -1,8 +1,10 @@
 // https://lg-youtube-api.herokuapp.com/api/v1
 // http://localhost:5000/api/v1
+// https://utubeclone2.herokuapp.com/api/v1/
 const http = axios.create({
-  // baseURL: 'http://localhost:5000/api/v1',
-  baseURL: 'https://lg-youtube-api.herokuapp.com/api/v1',
+  baseURL: 'http://localhost:5000/api/v1',
+  // baseURL: 'https://lg-youtube-api.herokuapp.com/api/v1',
+  // baseURL: 'https://utubeclone2.herokuapp.com/api/v1/',
   timeout: 10000
 })
 
@@ -35,6 +37,7 @@ http.interceptors.response.use(function (response) {
   const res = response.data
   return res
 }, function (error) {
+  NProgress.done()
   // 非200的错误，都在这里
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
@@ -46,13 +49,21 @@ http.interceptors.response.use(function (response) {
   } else if (error.response.data && error.response.data.message) {
     Toastify({
       text: error.response.data.message,
-      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)"
+      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
     }).showToast()
+
+    if (error.response.status === 401) {
+      setTimeout(() => {
+        window.location.href = '/login.html'
+      }, 3000);
+    }
   } else {
+    
     Toastify({
       text: error.response.statusText,
       backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)"
     }).showToast()
+    
   }
   
   return Promise.reject(error)

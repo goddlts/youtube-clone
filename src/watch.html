@@ -1,0 +1,165 @@
+{% set current = 'Watch' %}
+{% extends 'layouts/layout.html' %} 
+
+{% block styles%}
+<link href="/assets/styles/watch.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<div class="content">
+  <div class="video-container">
+  </div>
+  <div class="related-videos">
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- build:js assets/scripts/watch.js -->
+<script src="/assets/scripts/watch.js"></script>
+<!-- endbuild -->
+
+<script id="tpl-video" type="text/html">
+  <div class="video">
+    <!-- 视频播放器 -->
+    <video
+      id="my-player"
+      class="video-js vjs-big-play-centered"
+      controls
+      preload="auto">
+      <source id="source" src="[[video.url]]"></source>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">
+          supports HTML5 video
+        </a>
+      </p>
+    </video>
+  </div>
+  <div class="video-info">
+    <h3>[[video.title]]</h3>
+    <div class="video-info-stats">
+      <p><span>[[video.views]] views</span> <span>•</span> <span>[[ video.createdAt | relativeTime ]]</span></p>
+      <div class="likes-dislikes flex-row">
+        <p class="flex-row like">
+          <svg
+            viewBox="0 0 24 24"
+            preserveAspectRatio="xMidYMid meet"
+            focusable="false"
+            fill="#AAAAAA"
+            width="22"
+            height="22"
+            data-darkreader-inline-fill=""
+            style="--darkreader-inline-fill: #ccbea4"
+          >
+            <g>
+              <path
+                d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"
+              ></path>
+            </g>
+          </svg>
+          <span>[[ video.likesCount ]]</span>
+        </p>
+        <p class="flex-row dislike" style="margin-left: 1rem">
+          <svg
+            viewBox="0 0 24 24"
+            preserveAspectRatio="xMidYMid meet"
+            focusable="false"
+            width="22"
+            height="22"
+          >
+            <g>
+              <path
+                d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"
+              ></path>
+            </g>
+          </svg>
+          <span>[[ video.dislikesCount ]]</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="channel-info-description">
+    <div class="channel-info-flex">
+      <div class="channel-info flex-row">
+        <img
+          class="avatar md"
+          src="[[video.User.avatar]]"
+          alt="channel avatar"
+        />
+        <div class="channel-info-meta">
+          <h4>
+            <a href="/channel/[[video.User.id]]"
+              >[[video.User.username]]</a
+            >
+          </h4>
+          <span class="secondary small">[[video.subscribersCount]] subscribers</span>
+        </div>
+      </div>
+      [[if !video.isVideoMine]]
+      <button class="subscribe[[video.isSubscribed ? '' : ' active']]">[[video.isSubscribed ? 'Subscribed' : 'Subscribe']]</button>
+      [[/if]]
+    </div>
+    <p>[[ video.description ]]</p>
+  </div>
+  <div class="comment-container">
+    <h3>[[ video.commentsCount ]] comments</h3>
+    <div class="add-comment">
+      <img
+        src="[[video.User.avatar]]"
+        alt="avatar"
+      />
+      <textarea placeholder="Add a public comment"></textarea>
+    </div>
+    <!-- 评论列表 -->
+    <div class="list"></div>
+  </div>
+</script>
+<script id="tpl-related-video" type="text/html">
+  <h3 style="margin-bottom: 1rem">Up Next</h3>
+  [[each videos]]
+  <a href="/watch.html?id=[[$value.id]]">
+    <div class="sc-fzozJi dteCCc">
+      <img
+        class="thumb"
+        src="[[$value.thumbnail]]"
+        alt="thumbnail"
+      />
+      <div class="video-info-container">
+        <div class="channel-avatar"></div>
+        <div class="video-info">
+          <h4>[[$value.title]]</h4>
+          <span class="secondary">[[$value.User.username]]</span>
+          <p class="secondary">
+            <span>[[$value.views]] views</span> <span>•</span> <span>[[ $value.createdAt | relativeTime ]]</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </a>
+  [[/each]]
+</script>
+
+<script id="tpl-comment" type="text/html">
+  [[ each comments]]
+    <div class="comment">
+      <a href="/channel/[[$value.User.id]]"
+        ><img
+          src="[[ $value.User.avatar ]]"
+          alt="avatar"
+      /></a>
+      <div class="comment-info">
+        <p class="secondary">
+          <span
+            ><a href="/channel/[[$value.User.id]]"
+              >[[$value.User.username]]</a
+            ></span
+          ><span style="margin-left: 0.6rem">[[ $value.createdAt | relativeTime ]]</span>
+        </p>
+        <p>[[ $value.text ]]</p>
+      </div>
+    </div>
+    [[ /each ]]
+</script>
+{% endblock %}

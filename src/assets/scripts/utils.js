@@ -19,3 +19,17 @@ rule.test = new RegExp(rule.test.source.replace('{{', '\\\[\\\[').replace('}}', 
 template.defaults.imports.relativeTime = function(value) {
 	return dayjs().to(dayjs(value))
 }
+
+// 获取url上的参数
+function getQuery () {
+	let query = {}
+	let queryStr = location.search
+	queryStr = queryStr.replace('?', '')
+	const arr = queryStr.split('&')
+	arr.forEach(item => {
+		// item => id=1
+		const keyValuePair = item.split('=')
+		query[keyValuePair[0]] = keyValuePair[1]
+	})
+	return query
+}
